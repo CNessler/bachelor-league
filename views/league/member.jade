@@ -1,0 +1,29 @@
+extends ../layout
+block content
+  h1 New Member
+  if errorOne
+    p= errorOne
+  form(action='/league/member' method='post')
+    label(for='first') First Name 
+    input(type='text' id='first' name='first' placeholder='First Name' required)
+    label(for='last') Last Name 
+    input(type='text' id='last' name='last' placeholder='Last Name')
+    label(for='email') Email 
+    input(type='email' id='email' name='email' placeholder='Email' required)
+    label(for='league') League Name *must match original name 
+    input(type='text' id='league' name='league' placeholder='League Name' required)
+    label(for='password') Password 
+    input(type='password' id='password' name='password' placeholder='Password' required)
+    labe(for='passCheck') Confirm Password 
+    input(type='password' id='passCheck' name='passCheck' placeholder='Confirm Password' required)
+    input(type='submit' value='Sign Up')
+  
+  h1 Sign In  
+  if error
+    p= error
+  form(action='/league' method='post')
+    label(for='email') Email 
+    input(type='email' id='email' name='email' placeholder='Email' required)
+    label(for='password') Password 
+    input(type='password' id='password' name='password' placeholder='Password' required)
+    input(type='submit' value='Sign Up')

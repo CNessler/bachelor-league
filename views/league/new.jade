@@ -1,0 +1,24 @@
+extends ../layout
+block content
+
+  h1 NEW League
+  form(action='/league/new' method='post')
+    label(for='title') League Name 
+    input(type='text' id='title' name='title' required)
+    .input
+    label(for='owner') League Owner 
+    input(type='text' id='owner' name='first' required placeholder='First Name')
+    input(type='text' id='owner' name='last' required placeholder='Last Name')
+    input(type='text' id='owner' name='password' required placeholder='Password')
+    input(type='text' id='owner' name='passCheck' required placeholder='Confirm Password')
+    .input
+    #dynamicInput
+      label(for="email") Owner Email 
+      input(type="email" id='email' name="email" required)
+    p
+    input(type="button" value="Invite Another Member" onClick="addMember()")
+    .input
+    p
+    input(type='submit' value='Create League')
+
+  script(src='/javascripts/dom.js')

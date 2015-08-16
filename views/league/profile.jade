@@ -1,0 +1,9 @@
+extends ../layout
+block content
+
+  h1 PROFILE
+  p= member.firstName
+  p= member.lastName
+  p= member.email  
+  a(href='/league/home')= member.league
+  a(href='/league/create') Create League
