@@ -9,7 +9,7 @@ var Season = require('../lib/javascripts/season.js')
 router.get('/', function(req, res, next) {
 
   // console.log(db.Season);
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 router.get('/season', function (req, res, next) {

@@ -10,7 +10,6 @@ var addMember = function () {
 };
 
 var addContestant = function () {
-  // var paragaraph = document.createElement('p');
 
   var newDiv = document.createElement('div');
   var newInput = document.createElement("input");
@@ -26,12 +25,12 @@ var addContestant = function () {
   secondDiv.innerHTML = "Contestant Picture";
   secondDiv.appendChild(picture);
   newDiv.appendChild(secondDiv);
-  // secondDiv.appendChild(paragaraph)
 
 
   var thirdDiv = document.createElement('div');
   var bachelor = document.createElement("input");
   bachelor.type = "checkbox";
+  bachelor.value = 'off'
   bachelor.name = 'bachelor'
   thirdDiv.innerHTML = "Bachelor";
   thirdDiv.appendChild(bachelor)

@@ -2,6 +2,8 @@ extends ../layout
 block content
 
   h1 NEW League
+  if error 
+    p= error
   form(action='/league/new' method='post')
     label(for='title') League Name 
     input(type='text' id='title' name='title' required)

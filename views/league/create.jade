@@ -1,13 +1,5 @@
 extends ../layout
 block content
   h1 Create League 
-  form(action='/create' method='post')
-    label(for='season') Season 
-      input(type='number' id='season' name='season' placeholder='Season Number')
-    lable(for='year') Year 
-      input(type='number' id='year' name='year' placeholder='Season Year')
-    label(for='episode') Episode 
-      input(type='number' id='episode' name='episode' placeholder='Episode')
-    #dynamicInput 
-    input(type='button' value='Add Contestant' onClick='addContestant()') 
-  script(src='/javascripts/dom.js')  
+  p= season.year 
+  p= season.contestants

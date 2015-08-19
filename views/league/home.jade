@@ -2,6 +2,9 @@ extends ../layout
 block content
   h1 LEAGUE
   p= league.title
+    
   each member in members
-    p= member.firstName
-    p= member.lastName
+    p First Name
+      p= member.firstName
+    p Last Name  
+      p= member.lastName
