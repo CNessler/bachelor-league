@@ -27,7 +27,6 @@ router.post('/league/new', function (req, res, next) {
 router.get('/league/home', function (req, res, next) {
   var userCookie = req.session.userID;
   database.findLeague(userCookie).then(function (leagueAndMemberObject) {
-    console.log(leagueAndMemberObject, "Home Page");
     if(leagueAndMemberObject.length === 0){
       res.render('league/new')
     }
@@ -43,9 +42,7 @@ router.get('/league/member', function (req, res, next) {
 
 router.get('/league/profile', function (req, res, next) {
   var userCookie = req.session.userID
-  console.log(userCookie, 'COOKIE');
   database.findMember(userCookie).then(function (member) {
-    console.log(member, "MEMBER FOUND");
     res.render('league/profile', {member: member})
   })
 })
@@ -53,7 +50,6 @@ router.get('/league/profile', function (req, res, next) {
 router.post('/league/member', function (req, res, next) {
   var user = req.body;
   database.signUp(user).then(function (newUser) {
-    console.log(newUser, "NEW USER CREATED");
       req.session.userID = newUser._id
       req.session.firstName = newUser.first
       res.redirect('/league/profile')
@@ -62,7 +58,6 @@ router.post('/league/member', function (req, res, next) {
 
 router.post('/league', function (req, res, next) {
   var user = req.body;
-  // console.log(req.body);
   database.login(user)
   .then(function (foundUser) {
     if(foundUser){
@@ -80,22 +75,15 @@ router.post('/league', function (req, res, next) {
 
 router.get('/league/create', function (req, res, next) {
   var userCookie = req.session.userId;
-  console.log('GETS HERE');
-  console.log(database.findContestants);
   database.findContestants(userCookie).then(function (seasonFind) {
-    console.log(seasonFind, "SEASON FOUND");
     res.render('league/create', {season: seasonFind})
   })
 })
 
 router.post('/season', function (req, res, next) {
-  var formBody = req.body;
-  console.log(formBody, "FORM BODY");
-  console.log(database.newSeason, "fucntion should show");
-  database.newSeason(formBody).then(function (season) {
-    console.log(season, "CREATED!!!!!!!!!!");
-    res.redirect('/')
-  })
+  var information = req.body;
+  database.newSeasonMade(information)
+  res.redirect('/');
 })
 
 module.exports = router;
